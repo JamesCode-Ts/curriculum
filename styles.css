@@ -1,0 +1,338 @@
+/* =============================================================
+   TIAGO SANTANA FERREIRA — CURRICULUM VITAE
+   Typography & layout system — premium print edition
+   ============================================================= */
+
+:root {
+  --blue:  #1F3A5F;
+  --ink:   #1a1a1a;
+  --gray:  #5a5f65;
+  --rule:  #dde1e6;
+  --font:  'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Type scale — 4 clear levels */
+  --t-name:  17.5pt;
+  --t-h3:    10.8pt;
+  --t-body:  9pt;
+  --t-small: 9.3pt;
+  --t-h2:    8.6pt;
+  --t-micro: 7.2pt;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Base ───────────────────────────────────────────────────── */
+html, body {
+  background: #eef0f3;
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* ── Page canvas ─────────────────────────────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  padding: 10mm 15mm;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.05),
+    0 4px 12px rgba(0,0,0,0.06),
+    0 20px 48px rgba(0,0,0,0.08);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--blue);
+}
+
+.identity h1 {
+  font-size: var(--t-name);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--blue);
+  line-height: 1.0;
+}
+
+.identity .role {
+  margin-top: 3px;
+  font-size: 9.4pt;
+  font-weight: 400;
+  color: var(--gray);
+  letter-spacing: 0.005em;
+}
+
+.identity .role .dot {
+  color: var(--blue);
+  opacity: 0.45;
+  margin: 0 4px;
+}
+
+.contact {
+  list-style: none;
+  text-align: right;
+  font-size: var(--t-small);
+  font-weight: 400;
+  color: var(--gray);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.contact a { color: var(--gray); text-decoration: none; }
+.contact a:hover { color: var(--blue); }
+
+/* ── Summary ─────────────────────────────────────────────────── */
+.summary {
+  padding: 7px 0 7px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.summary p {
+  font-size: var(--t-body);
+  line-height: 1.48;
+  color: var(--ink);
+}
+
+/* ── Section headings ──────────────────────────────────────────
+   Versalete: generous tracking, weight 600, not competing.
+   ─────────────────────────────────────────────────────────── */
+.block { margin-top: 8px; }
+.block:first-child { margin-top: 0; }
+
+.block h2 {
+  font-size: var(--t-h2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--blue);
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Two-column layout ───────────────────────────────────────── */
+.columns {
+  display: grid;
+  grid-template-columns: 1.72fr 1fr;
+  column-gap: 20px;
+  padding-top: 9px;
+}
+
+.col-main .block:not(:first-child),
+.col-side .block:not(:first-child) {
+  margin-top: 8px;
+}
+
+/* ── Experience ──────────────────────────────────────────────── */
+.job + .job {
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid var(--rule);
+}
+
+.job-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.job-head h3 {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.job .period {
+  font-size: var(--t-small);
+  font-weight: 400;
+  color: var(--gray);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  flex-shrink: 0;
+}
+
+.job-sub {
+  font-size: var(--t-small);
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+.job-lead {
+  font-size: var(--t-small);
+  color: var(--gray);
+  margin-top: 3px;
+  line-height: 1.42;
+}
+
+.job ul {
+  list-style: none;
+  margin-top: 4px;
+}
+
+.job ul li {
+  position: relative;
+  font-size: var(--t-body);
+  line-height: 1.42;
+  padding-left: 12px;
+  margin-top: 3px;
+  color: var(--ink);
+}
+
+/* Bullet anchored to cap-height — never drifts */
+.job ul li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0.44em;
+  width: 3px;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 50%;
+  opacity: 0.65;
+}
+
+.stack {
+  margin-top: 4px;
+  font-size: var(--t-small);
+  line-height: 1.42;
+  color: var(--gray);
+}
+
+.stack span {
+  display: inline-block;
+  font-size: var(--t-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  opacity: 0.7;
+  margin-right: 5px;
+}
+
+.diferencial {
+  font-size: var(--t-body);
+  line-height: 1.48;
+  color: var(--ink);
+}
+
+/* ── Skills ──────────────────────────────────────────────────── */
+.skills > div + div { margin-top: 4px; }
+
+.skills dt {
+  font-size: var(--t-small);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.skills dd {
+  font-size: var(--t-small);
+  color: var(--gray);
+  line-height: 1.36;
+}
+
+/* ── Education & extra entries ───────────────────────────────── */
+.entry-title {
+  font-size: var(--t-body);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.entry-sub {
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--blue);
+  margin-top: 1px;
+}
+
+.entry-meta {
+  font-size: var(--t-small);
+  color: var(--gray);
+  margin-top: 1px;
+}
+
+/* ── Certifications ──────────────────────────────────────────── */
+.plain-list { list-style: none; }
+
+.plain-list li {
+  position: relative;
+  font-size: var(--t-small);
+  color: var(--ink);
+  padding-left: 12px;
+  line-height: 1.42;
+}
+
+.plain-list li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0.44em;
+  width: 3px;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 50%;
+  opacity: 0.65;
+}
+
+/* ── Languages ───────────────────────────────────────────────── */
+.langs { list-style: none; }
+
+.langs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: var(--t-small);
+  color: var(--ink);
+  padding: 2px 0;
+}
+
+.langs li + li { border-top: 1px solid var(--rule); }
+
+.langs .level {
+  color: var(--gray);
+  font-size: var(--t-small);
+}
+
+/* ── Print ───────────────────────────────────────────────────── */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html, body { background: #fff; }
+  body { display: block; padding: 0; }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 10mm 15mm;    /* identical to screen — zero layout shift */
+    box-shadow: none;
+  }
+  .contact a { color: var(--gray) !important; }
+  .job ul li::before,
+  .plain-list li::before {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
